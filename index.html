@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Quiz</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+</head>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="quiz.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<body>
+
+    <div class="quiz-wrapper">
+
+    <!--Modal para o Início e Fim do Jogo-->
+    <div id="q-modalCover" class="q-modal-cover">
+        <div id="q-modalActive" class="q-modal-activearea">
+            <!--<img class="q-modal-logo" alt="company logo" src="http://www.sandbox.com.br/wp-content/uploads/2017/03/Logo_Sandbox_FundoEscuro_tall2-1.png">-->
+            <h1 id="q-modal-header">Olá!</h1>
+            <p id="q-modal-title" class=q-header-text>Bem-vindo ao Quiz!</p>
+            <div id="q-modal-pointsarea">
+                <h2 id="q-modal-pts">00</h2>
+                <h2 id="q-modal-pts-text"> pontos</h2>
+            </div>
+            <button id="btModalStart" class="button bt-modal-start">Jogar</button>
+        </div>  
+    </div>
+
+    <!--Container Superior-->
+    <header class="q-sup-container">
+        <img class="q-header-logo" alt="company logo" src="http://www.sandbox.com.br/wp-content/uploads/2017/03/Logo_Sandbox_FundoEscuro_tall2-1.png">
+        <p class=q-header-text>Quiz de Conhecimentos Gerais</p>
+    </header> <!-- End of Sup Section -->
+
+    <!--Espaçador Sup--> 
+    <section class="q-top-spacer">
+        <!--nothing here-->
+        <!--<button id="btTest">Iniciar</button>-->
+    </section>
+
+    <!--Container Central-->    
+    <section id="q-mid-cont" class="q-mid-container">
+
+        <section class="q-midleft-container"> 
+
+            <!--Indicador de qual questão está sendo apresentada-->                      
+            <div class="q-progress-bar"> 
+                <p>Questão:</p>
+                <div class="q-progress-items">              
+                    <ul>
+                        <li class="q-progress-item-notsel" id="q-prog-item-1">1</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-2">2</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-3">3</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-4">4</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-5">5</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-6">6</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-7">7</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-8">8</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-9">9</li>
+                        <li class="q-progress-item-notsel" id="q-prog-item-10">10</li>
+                    </ul>
+                </div>
+            </div>  
+
+            <!--Área da Questão e Respostas-->   
+            <div class="q-question-area">
+                <div class="q-question">
+                    <p id="q-main-question">...</p>
+                </div>
+                <div class="q-answers-area">
+                    <ul class="q-answers-items">
+                        <li id="q-item01" data-id="x" class="q-answer-item-notsel">A</li>
+                        <li id="q-item02" data-id="x" class="q-answer-item-notsel">B</li>
+                        <li id="q-item03" data-id="x" class="q-answer-item-notsel">C</li>
+                        <li id="q-item04" data-id="x" class="q-answer-item-notsel">D</li>
+                    </ul>
+                    <ul class="q-answers-txt">
+                        <li id="q-answer01" data-num="1" data-id="x" class="q-answer-notsel">.</li>
+                        <li id="q-answer02" data-num="2" data-id="x" class="q-answer-notsel">.</li>
+                        <li id="q-answer03" data-num="3" data-id="x" class="q-answer-notsel">.</li>
+                        <li id="q-answer04" data-num="4" data-id="x" class="q-answer-notsel">.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Área com o Timer e os 2 Botões -->
+            <div class="q-question-inf-area">
+                <!--Área do Timer-->
+                <div id="q-timerArea" class="q-timer-area">
+                    <p><i class="far fa-clock fa-lg" id="q-timer-icon"></i></p>
+                    <p id="q-timer">00:00</p>
+                </div>
+                <button id="btConf" class="bt bt-conf">confirmar</button>
+                <button id="btPass"class="bt bt-pass">passar</button>
+                <!--Área do feedback--> 
+                <div class="q-feedback-area">
+                    <span id="q-feedback-text" class="q-feedb-txt q-feedb-txt-pos">ACERTOU!</span>
+                    <span id="q-feedback-points" class="q-feedb-txt q-feedb-txt-pos"> +00 pontos!</span>
+                </div>
+            </div>
+
+        </section> <!-- End of Mid Left Container -->
+
+        <section class="q-midright-container">
+            <div class="q-points-title-area">
+                <h5 id="q-points" class="q-points-display">0</h5>  
+                <p class="q-points-display">pontos</p>  
+            </div>       
+            <!--Barra de Pontos-->        
+            <div class="progress progress-bar-vertical rounded-0 .bg-light">
+                <div class="progress-bar progress-bar-danger q-pointsbar-pos" role="progressbar" style="height: 1%;" id="q-progbar">      
+                </div>
+            </div>
+        </section> <!-- End of Mid Right Container -->
+
+    </section>
+
+    <!--Espaçador Inferior--> 
+    <section class="q-inf-spacer">
+        <!--nothing here-->
+    </section>
+
+    <!--Container Inferior-->
+    <footer class="q-inf-container">
+        <div class="bt-exit">
+          <i class="bt-exit-icon far fa-arrow-alt-circle-left fa-2x"></i> 
+          <p class="q-exit-label">sair</p>
+        </div>
+  
+        <!--Área do Nome do Jogador-->
+        <p class="q-player-name">Fulano da Silva</p>
+        
+        <img class="q-logo-inf" alt="company logo" src="http://www.sandbox.com.br/wp-content/uploads/2017/03/Logo_Sandbox_FundoEscuro_tall2-1.png">      
+      </footer> <!-- End of Inf Section -->
+
+    </div>  
+</body>
+
+</html>

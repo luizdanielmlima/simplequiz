@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "This was my first project using JS, HTML and CSS.\r I did it entirely in Codepen and then I decided to put it here in Github for my dev portifolio and share it with others too.",
   "main": "quiz.js",
-  "dependencies": {
-    "eslint": "^5.14.1",
-    "gh-pages": "^2.0.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "deploy": "gh-pages -d dist"
   },
@@ -21,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/luizdanielmlima/simplequiz/issues"
   },
-  "homepage": "https:/luizdanielmlima.github.io/simplequiz"
+  "homepage": "https:/luizdanielmlima.github.io/simplequiz",
+  "dependencies": {
+    "eslint": "^5.14.1",
+    "gh-pages": "^2.0.1"
+  },
+  "devDependencies": {}
 }

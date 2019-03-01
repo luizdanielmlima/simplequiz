@@ -1,7 +1,6 @@
 /* CSS Variables */
 :root {
   /* UI colors - Template 1*/
-  --primary: rgb(25, 95, 195);
   --dark: rgba(55, 55, 55, 0.7);
   --light: rgba(245, 245, 245, 0.8);
   --backgColor: #fcd3de;

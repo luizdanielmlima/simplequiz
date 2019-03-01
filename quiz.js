@@ -447,7 +447,7 @@ window.onload = function() {
       feedbackPoints.className = "q-feedb-txt q-feedb-txt-neg";
     } else if (status == "timeOut") {
       playerScore += ptsTimeOut;
-      feedbackText.innerHTML = "&#10006; TIME IS UP!";
+      feedbackText.innerHTML = "&#10006; TIME OUT!";
       feedbackPoints.innerHTML = ptsTimeOut + " points";
       feedbackText.className = "q-feedb-txt q-feedb-txt-neg";
       feedbackPoints.className = "q-feedb-txt q-feedb-txt-neg";

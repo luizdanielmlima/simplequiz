@@ -3,6 +3,8 @@
 This was my first project using JS, HTML and CSS.
 I did it entirely in Codepen and then I decided to put it here in Github for my dev portifolio and share it with others too.
 
+[Watch the demo](https://luizdanielmlima.github.io/simplequiz/)
+
 ## Some Observations
 
 - Since I was basically "learning as I went" at the time I wrote this quiz, I think the code is really not good.
